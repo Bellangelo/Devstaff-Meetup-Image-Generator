@@ -8,6 +8,8 @@
   },
   "author": "Aggelos Bellos",
   "license": "ISC",
+  "node": "^20.5.1",
+  "type": "module",
   "dependencies": {
     "node-html-to-image": "^4.0.0"
   }
