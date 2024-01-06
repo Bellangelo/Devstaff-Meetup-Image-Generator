@@ -1,23 +1,11 @@
-const { promises } = require('fs');
-const { join } = require('path');
+import {join, dirname} from 'path';
+import { fileURLToPath } from 'url';
+import App from './app.js';
 
-async function main(){
-	const svg = await promises.readFile(join(__dirname, './assets/meetup-template.svg'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-	const nodeHtmlToImage = require('node-html-to-image');
-
-	nodeHtmlToImage(
-		{
-			quality: 100,
-			output: './image.jpg',
-			html: svg.toString(),
-			puppeteerArgs: {
-				defaultViewport: {
-					width: 1920,
-					height: 1080
-				}
-			}
-		}).then(() => console.log('The image was created successfully!'))
-}
-
-main();
+const svgPath = join(__dirname, './assets/meetup-template.svg');
+console.log(svgPath);
+const app = new App(svgPath);
+app.saveAsJPG();
