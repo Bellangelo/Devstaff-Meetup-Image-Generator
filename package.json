@@ -9,7 +9,6 @@
   "author": "Aggelos Bellos",
   "license": "ISC",
   "dependencies": {
-    "ag-psd": "^19.0.0",
-    "canvas": "^2.11.2"
+    "node-html-to-image": "^4.0.0"
   }
 }
