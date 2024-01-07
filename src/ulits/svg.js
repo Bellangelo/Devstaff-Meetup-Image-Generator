@@ -21,12 +21,13 @@ export default class Svg{
 	}
 
 	/**
+	 * @param {string} fileName
 	 * @param {Object} templateArguments
 	 */
-	saveAsJPG(templateArguments= {}){
+	saveAsJPG(fileName, templateArguments= {}){
 		nodeHtmlToImage({
 				quality: 100,
-				output: './image.jpg',
+				output: './' + fileName,
 				html: this.#svgHTML,
 				content: templateArguments,
 				puppeteerArgs: {
