@@ -15,7 +15,7 @@ on:
 
 jobs:
     generate:
-        name: Psalm Taint Analysis
+        name: Setup project and generate image
         runs-on: ubuntu-latest
         timeout-minutes: 10
         steps:
@@ -24,10 +24,10 @@ jobs:
               uses: actions/setup-node@v3
               with:
                 node-version: '20.x'
-            -   run: npm install
-            -   run: node index.js --date="${{ github.event.inputs.date }}" --title="${{ github.event.inputs.title }}" --secondaryTitle="${{ github.event.inputs.secondaryTitle }}"
-            -   name: Archive generated image
-                uses: actions/upload-artifact@v3
-                with:
-                 name: meetup-image
-                 path: image.jpg
+            - run: npm install
+            - run: node index.js --date="${{ github.event.inputs.date }}" --title="${{ github.event.inputs.title }}" --secondaryTitle="${{ github.event.inputs.secondaryTitle }}"
+            - name: Archive generated image
+              uses: actions/upload-artifact@v3
+              with:
+                name: meetup-image
+                path: image.jpg
