@@ -1,22 +1,34 @@
 import {readFileSync} from'fs';
 import nodeHtmlToImage from 'node-html-to-image';
 
-export default class App{
+export default class Svg{
 	#svgHTML;
 
-	constructor(svgFilePath){
+	/**
+	 * @param {string} svgFilePath
+	 */
+	constructor(
+		svgFilePath
+	){
 		this.#loadSvg(svgFilePath);
 	}
 
+	/**
+	 * @param {string} svgFilePath
+	 */
 	#loadSvg(svgFilePath){
 		this.#svgHTML = readFileSync(svgFilePath).toString();
 	}
 
-	saveAsJPG(){
+	/**
+	 * @param {Object} templateArguments
+	 */
+	saveAsJPG(templateArguments= {}){
 		nodeHtmlToImage({
 				quality: 100,
 				output: './image.jpg',
 				html: this.#svgHTML,
+				content: templateArguments,
 				puppeteerArgs: {
 					defaultViewport: {
 						width: 1920,
