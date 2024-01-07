@@ -57,7 +57,7 @@ export default class App{
 	 */
 	generateTemplateArguments(){
 		return {
-			dateDay: String(this.#date.getDate() + 1).padStart(2, '0'),
+			dateDay: String(this.#date.getDate()).padStart(2, '0'),
 			dateMonth: String(this.#date.getMonth() + 1).padStart(2, '0'),
 			day: this.#date.toLocaleString('en-US', {weekday: 'long'}).toUpperCase(),
 			title: this.#title,
