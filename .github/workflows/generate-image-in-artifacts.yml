@@ -29,7 +29,7 @@ jobs:
             - run: npm install
             - run: node index.js --date="${{ github.event.inputs.date }}" --title="${{ github.event.inputs.title }}" --secondaryTitle="${{ github.event.inputs.secondaryTitle }}"
             - name: Archive generated image
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                 name: meetup-image
                 path: image.jpg
